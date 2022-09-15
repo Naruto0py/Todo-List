@@ -1,0 +1,28 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/style.css' %}"/>
+
+<div class="header-bar">
+    <h1 style="margin-left:10px;">Register</h1>
+</div>
+
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <label style="margin-left:20px;">{{form.username.label}}</lable>
+        {{form.username}}
+           
+        <label>{{form.password1.label}}</lable>
+        {{form.password1}}
+
+        <label>{{form.password2.label}}</lable>
+        {{form.password2}}
+        <input style="margin-top:10px;" class="button" type='submit' value='Register'>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
+
+
+{% endblock content %}
